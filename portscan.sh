@@ -1,10 +1,5 @@
 #!/bin/bash
 
-tor=$(service tor -h)
-if [ -z "$tor" ]; then
-  apt install tor -y
-fi
-
 echo -e "\n\033[0;32m                     █████████████████▓  \033[0m"
 echo -e "\033[0;32m                ▒██▓                   ▒███░  \033[0m"
 echo -e "\033[0;32m             ███        ▓▓████████▒       ░ █▓█  \033[0m"
