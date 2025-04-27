@@ -19,8 +19,8 @@ echo -e "\033[0;32m                                  \ enum.sh V.1.2 \033[0m\n"
 
 
 
-alvo=$2
-wordlist=$3
+alvo="$2"
+wordlist="$3"
 
 if [ "$1" == "---dir" ]; then
   cat "$wordlist" | xargs -I {} -P 50 bash -c "brute=\$(curl --max-time 1 --retry 2 -A 'Mozilla/5.0 (X11; Linux x86_64; rv:112.0) Gecko/20100101 Firefox/112.0 (pt-BR)' -o /dev/null -s -w '%{http_code}\n' --header 'Connection: keep-alive' '${alvo}{}');
