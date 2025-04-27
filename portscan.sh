@@ -19,7 +19,7 @@ echo -e "\033[0;32mlinktr.ee/rafael_tavares.7/ \033[0m\n"
 
 # Função para capturar a interrupção (Ctrl+C) e matar todos os pings
 trap "kill 0" SIGINT
-host=$2
+host="$2"
 
 if [ "$1" == "---scan" ]; then
   tor=$(service tor -h)
@@ -37,7 +37,7 @@ if [ "$1" == "---scan" ]; then
 
 elif [ "$1" == "---network-scan" ]; then
   for p in $(seq 1 255); do
-     result=$(ping -c 1 -W 1 "$ip$p" | grep "64 bytes" | cut -d " " -f 4 | tr -d ":")
+     result=$(ping -c 1 -W 1 "$host.$p" | grep "64 bytes" | cut -d " " -f 4 | tr -d ":")
      if [ -n "$result" ]; then
        echo -e "\033[0;32m[IP] $result\033[0m"
      fi &
@@ -50,5 +50,5 @@ elif [ "$1" == "---network-scan" ]; then
 
 elif [ "$1" == "-h" ]; then
   echo -e "\033[0;32mScan: portscan.sh ---scan [HOST]\033[0m"
-  echo -e "\033[0;32mNetwork scan: portscan.sh ---network-scan [IP exemplo: 10.0.0.]\033[0m\n"
+  echo -e "\033[0;32mNetwork scan: portscan.sh ---network-scan [IP exemplo: 10.0.0]\033[0m\n"
 fi
