@@ -32,7 +32,7 @@ if [ "$1" == "---scan" ]; then
     apt install tor -y
   fi
   service tor start
-  cat "wordlists/top_portas.txt" | xargs -I {} -P 50 bash -c "
+  cat "top_portas.txt" | xargs -I {} -P 50 bash -c "
     result=\$(proxychains nc -zv -w 5 \"$host\" {} 2>&1 | grep -i 'open' | sed 's/: Operation now in progress//g; s/\[[^]]*\]//g; s/open//g') # -w especifica o tempo limite
     if [ -n \"\$result\" ]; then
       echo -e \"\033[0;32m[OPEN] \$result\033[0m\"
