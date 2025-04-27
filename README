@@ -1,0 +1,9 @@
+portscan.sh:
+   ---scan [HOST] Procura portas abertas em host.
+   ---network-scan [IP exemplo: 10.0.0] Faz um ping scan na rede, procurando dispositivos conectados.
+
+enum.sh:
+  ---dir URL [WORDLIST] Enumeração recursiva de diretorios.
+  ---sbd [DOMAIN.COM] [WORDLIST] Enumeração de subdominio.
+  ---cname [DOMAIN.COM] [WORDLIST] Chaca CNMEs.
+  ---reverse-dns [IP: 10.0.0] Pesquisa reversa de DNS.
